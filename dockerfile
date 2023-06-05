@@ -12,5 +12,7 @@ RUN npm run build
 
 FROM nginx
 
+EXPOSE 80
+
 COPY --from=builder /app/build /usr/share/nginx/html  
 #copying build folder and paste it in /app/usr/share/nginx/html folder , now automatically nginx server will run

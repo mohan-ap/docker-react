@@ -8,3 +8,20 @@ before_install:
 
 script:
   - docker run -e CI=true mohanap/docker-react npm run test -- --coverage
+
+deploy:
+  provider: elasticbeanstalk
+  region: "eu-north-1"
+  app: "docker"
+  env: "Docker-env1"
+  bucket_name: "elasticbeanstalk-eu-north-1-864511364297"
+  bucket_path: "docker"
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: "$AWS_SECRET_KEY"
+
+
+
+  #  aws user acces key: AKIA4SSHERTE62IBG2HV
+  #  secret key: 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
